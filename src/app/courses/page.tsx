@@ -13,14 +13,17 @@ export default function Courses() {
     // This sends the data directly to the GTM Data Layer
     sendGTMEvent({
       event: 'course_enroll_click',
+      ecommerce: {
       course_id: course.id,
       course_name: course.name,
       value: course.price,
       currency: 'USD',
+    },
+      user_type: 'visitor'
     });
     
     // Optional: Alert or redirect after tracking
-    console.log(`Tracking event for: ${course.name}`);
+    console.log(`DataLayer Push Successful: ${course.name}`);
   };
 
   return (
